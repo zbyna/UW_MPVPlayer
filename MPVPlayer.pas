@@ -902,7 +902,7 @@ begin
   FGL.OnResize := @DoResize; // force to draw opengl context when paused
 
   FRenderGL := TMPVPlayerRenderGL.Create(FGL, FMPV_HANDLE {$IFDEF BGLCONTROLS}, FOnDrawEvent{$ENDIF});
-  Result := FRenderGL.Initialized;
+  Result := FRenderGL.Active;
 end;
 
 // -----------------------------------------------------------------------------
@@ -929,7 +929,7 @@ end;
 function TMPVPlayer.InitializeRenderSDL: Boolean;
 begin
   FRenderSDL := TMPVPlayerRenderSDL.Create(Handle, FMPV_HANDLE);
-  Result := FRenderSDL.Initialized;
+  Result := FRenderSDL.Active;
 end;
 
 // -----------------------------------------------------------------------------
